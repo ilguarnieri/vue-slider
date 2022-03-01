@@ -28,10 +28,20 @@ const app = new Vue({
                 description:'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam'
             }
         ],
-        currentIndex: 0,
+        currentIndex: 0
+    },
+    methods: {
+        click_up: function(){
+            this.currentIndex--;
+            if(this.currentIndex < 0){this.currentIndex = this.slides.length - 1};
+        },
+
+        click_down: function(){
+            this.currentIndex++;
+            if(this.currentIndex > this.slides.length -1){this.currentIndex = 0};
+        }
     }
 })
-
 
 
 
@@ -59,23 +69,6 @@ function createElement(el, i){
 const slide_active = [...document.getElementsByClassName('slide-item')];
 const thumb_active = [...document.getElementsByClassName('thumb-item')];
 
-//click up
-btn_up.addEventListener('click', function(){
-
-    controllActive(activeIndex);
-    activeIndex--;
-    if(activeIndex < 0){activeIndex = slide_active.length - 1}
-    controllActive(activeIndex);
-})
-
-//click down
-btn_down.addEventListener('click', function(){
-
-    controllActive(activeIndex);    
-    activeIndex++;
-    if(activeIndex > slide_active.length - 1){activeIndex = 0}
-    controllActive(activeIndex);
-})
 
 function controllActive(activeIndex){
     slide_active[activeIndex].classList.toggle('active');

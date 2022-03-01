@@ -18,45 +18,29 @@
             <!-- IMG -->
             <div class="slide-wrapper">
 
-
-
-
-
-
                 <div v-for="(el, i) in slides" :class="['slide-item', i === currentIndex ? 'active' : '']">
-                    <img :src="el.img" alt="el.title">
+                    <img :src="el.img" :alt="el.title">
                     <div class="slide-text">
                         <h1>{{ el.title }}</h1>
                         <h3>{{ el.description }}</h3>
                     </div>
                 </div>
 
-
-
-
-
-
-
             </div>
 
             <div class="preview-wrapper">
                 <!-- FRECCE -->
                 <div class="arrows">
-                    <span class="up"><i class="fas fa-angle-up"></i></span>
-                    <span class="down"><i class="fas fa-angle-down"></i></span>
+                    <span @click="click_up" class="up"><i class="fas fa-angle-up"></i></span>
+                    <span @click="click_down" class="down"><i class="fas fa-angle-down"></i></span>
                 </div>
 
                 <!-- PREVIEW -->
-                <div class="thumbnails">
-                    
+                <div class="thumbnails">                    
 
                     <div v-for="(el, i) in slides" :class="['thumb-item', i === currentIndex ? 'active' : '']">
-                        <img :src="el.img" alt="el.title">
+                        <img :src="el.img" :alt="el.title">
                     </div>
-
-
-
-
 
                 </div>
             </div>            
