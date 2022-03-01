@@ -38,7 +38,7 @@
                 <!-- PREVIEW -->
                 <div class="thumbnails">                    
 
-                    <div v-for="(el, i) in slides" :class="['thumb-item', i === currentIndex ? 'active' : '']">
+                    <div v-for="(el, i) in slides" @click="thumb_click(i)" :class="['thumb-item', i === currentIndex ? 'active' : '']">
                         <img :src="el.img" :alt="el.title">
                     </div>
 

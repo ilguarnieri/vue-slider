@@ -39,38 +39,10 @@ const app = new Vue({
         click_down: function(){
             this.currentIndex++;
             if(this.currentIndex > this.slides.length -1){this.currentIndex = 0};
+        },
+
+        thumb_click: function(i){
+            this.currentIndex = i;
         }
     }
 })
-
-
-
-
-
-
-function createElement(el, i){
-
-
-    if(active){
-        slide_item.classList.add('active');
-        thumb_item.classList.add('active');
-    }
-
-    //click sulle thumbnail
-    thumb_item.addEventListener('click', function(){
-
-        controllActive(activeIndex);
-        activeIndex = i;
-        controllActive(activeIndex);
-    })
-}
-
-//creazione array
-const slide_active = [...document.getElementsByClassName('slide-item')];
-const thumb_active = [...document.getElementsByClassName('thumb-item')];
-
-
-function controllActive(activeIndex){
-    slide_active[activeIndex].classList.toggle('active');
-    thumb_active[activeIndex].classList.toggle('active');
-}
