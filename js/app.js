@@ -31,12 +31,12 @@ const app = new Vue({
         currentIndex: 0
     },
     methods: {
-        click_up: function(){
+        click_pre: function(){
             this.currentIndex--;
             if(this.currentIndex < 0){this.currentIndex = this.slides.length - 1};
         },
 
-        click_down: function(){
+        click_next: function(){
             this.currentIndex++;
             if(this.currentIndex > this.slides.length -1){this.currentIndex = 0};
         },
@@ -44,5 +44,9 @@ const app = new Vue({
         thumb_click: function(i){
             this.currentIndex = i;
         }
+    },
+    mounted(){
+        setInterval(this.click_next, 3000);
     }
 })
+
