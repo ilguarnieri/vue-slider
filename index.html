@@ -13,7 +13,7 @@
 <body>
 
     <section id="app">
-        <div class="slider">
+        <div class="slider" @mouseenter="stop_play" @mouseleave="start_play">
 
             <!-- IMG -->
             <div class="slide-wrapper">
@@ -22,7 +22,7 @@
                     <img :src="el.img" :alt="el.title">
                     <div class="slide-text">
                         <h1>{{ el.title }}</h1>
-                        <h3>{{ el.description }}</h3>
+                        <h3>{{ el.description }}</h3> 
                     </div>
                 </div>
 

@@ -28,7 +28,8 @@ const app = new Vue({
                 description:'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam'
             }
         ],
-        currentIndex: 0
+        currentIndex: 0,
+        clock: undefined,
     },
     methods: {
         click_pre: function(){
@@ -43,10 +44,16 @@ const app = new Vue({
 
         thumb_click: function(i){
             this.currentIndex = i;
+        },
+        stop_play: function(){
+            clearInterval(this.clock);
+        },
+        start_play: function(){
+            this.clock = setInterval(this.click_next, 3000);
         }
     },
     mounted(){
-        setInterval(this.click_next, 3000);
+        this.start_play();
     }
 })
 
